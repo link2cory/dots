@@ -1,0 +1,39 @@
+[user]
+	email = link2cory@gmail.com
+	name = Cory Perkins
+[alias]
+	i = init
+	br = branch
+	c = checkout
+	cb = checkout -b
+	st = status --short
+	a = add
+	A = add --all
+	ap = add -p
+	unstage = reset HEAD --
+	d = diff
+	ds = diff --staged
+	cm = commit -m
+	cam = commit --ammend
+	ca = commit -a -m
+	l = log --oneline --graph
+	ll = log --graph --relative-date
+	lp = log -p --relative-date
+	ls = log --stat --relative-date
+	last = log -1 HEAD --stat --relative-date
+	m = merge
+	p = push
+	t = tag -a 
+	tl = tag -l
+	r = remote
+	rv = remote -v
+	rs = remote show
+	f = fetch
+
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[mergetool]
+	prompt = false
