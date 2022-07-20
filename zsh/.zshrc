@@ -7,6 +7,10 @@ fi
 
 source ~/.config/zsh/plugins.zsh
 source ~/.config/zsh/aliases.zsh
+source ~/.config/zsh/fzf.zsh
+source ~/.config/zsh/startup.zsh
+source ~/.config/zsh/keybinds.zsh
+source ~/.config/zsh/autosuggestions.zsh
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
