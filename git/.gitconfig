@@ -1,6 +1,10 @@
 [user]
 	email = link2cory@gmail.com
 	name = Cory Perkins
+
+[core]
+  editor = nvim
+
 [alias]
 	i = init
 	br = branch
@@ -37,3 +41,6 @@
 	conflictstyle = diff3
 [mergetool]
 	prompt = false
+
+[push]
+  default = current
