@@ -45,6 +45,8 @@ alias gbd='git branch -D'
 alias grm='git rm'
 alias gm='git merge'
 alias gds='git diff --staged'
+alias gcp="git cherry-pick"
+alias gcpn="git cherry-pick --no-commit"
 
 # docker 
 alias di='docker image'
@@ -66,3 +68,5 @@ alias dcl='docker-compose logs'
 # custom docker scripts
 alias dpa='docker-prune-all'
 
+
+alias ss='grim -g "$(slurp)" - | wl-copy'

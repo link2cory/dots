@@ -11,6 +11,7 @@ source ~/.config/zsh/fzf.zsh
 source ~/.config/zsh/startup.zsh
 source ~/.config/zsh/keybinds.zsh
 source ~/.config/zsh/autosuggestions.zsh
+source ~/.config/zsh/history.zsh
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
