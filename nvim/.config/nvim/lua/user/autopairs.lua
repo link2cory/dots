@@ -5,6 +5,7 @@ m.setup = function()
 	if not status_ok then
 		return
 	end
+
 	autopairs.setup({
 		check_ts = true,
 		ts_config = {

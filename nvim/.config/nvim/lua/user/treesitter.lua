@@ -8,14 +8,14 @@ treesitter.setup = function()
 
 	configs.setup({
 		ensure_installed = {
-     "lua",
-     "php",
-     "javascript",
-     "typescript",
-     "html",
-     "css",
-     "json"
-   },
+			"lua",
+			"php",
+			"javascript",
+			"typescript",
+			"html",
+			"css",
+			"json",
+		},
 		highlight = {
 			enable = true, -- false will disable the whole extension
 		},

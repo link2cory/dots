@@ -52,7 +52,7 @@ m.setup = function()
 			persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
 			-- can also be a table containing 2 custom separators
 			-- [focused and unfocused]. eg: { '|', '|' }
-			separator_style = "slant", -- "slant" | "thick" | "thin" | { 'any', 'any' },
+			separator_style = "thick", -- "slant" | "thick" | "thin" | { 'any', 'any' },
 			enforce_regular_tabs = true,
 			always_show_bufferline = true,
 			sort_by = "insert_after_current", -- 'insert_after_current' |'insert_at_end' | 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)

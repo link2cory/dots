@@ -13,6 +13,7 @@ configs.setup = function()
 	local servers = {
 		"sumneko_lua",
 		"intelephense",
+		"tsserver",
 	}
 
 	for _, server in ipairs(servers) do

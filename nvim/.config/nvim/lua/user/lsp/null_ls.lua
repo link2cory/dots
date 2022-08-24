@@ -12,6 +12,7 @@ null_ls.setup = function()
 		debug = true,
 		sources = {
 			formatting.stylua,
+			formatting.prettier,
 		},
 		on_attach = function(client, bufnr)
 			print(client.name)

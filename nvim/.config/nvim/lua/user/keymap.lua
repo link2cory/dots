@@ -20,8 +20,8 @@ keymap.setup = function()
 	map("n", "<C-l>", "<C-w>l", opts)
 
 	-- Navigate buffers
-	map("n", "<S-l>", ":bnext<CR>", opts)
-	map("n", "<S-h>", ":bprevious<CR>", opts)
+	map("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
+	map("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
 
 	-- buffers
 	map("n", "<C-s>", "<cmd>lua vim.api.nvim_command('write')<cr>", opts)
@@ -37,6 +37,11 @@ keymap.setup = function()
 
 	-- reload luasnips
 	map("n", "<leader>rr", "<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<cr>", opts)
+
+	map("n", "<C-Up>", ":resize -2<CR>", opts)
+	map("n", "<C-Down>", ":resize +2<CR>", opts)
+	map("n", "<C-Left>", ":vertical resize -2<CR>", opts)
+	map("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 end
 
 return keymap

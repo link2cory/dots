@@ -10,6 +10,7 @@ local common_on_attach = function(client, bufnr)
 	local opts = { noremap = true, silent = true, buffer = bufnr }
 	local map = vim.keymap.set
 	map("n", "<leader>gd", vim.lsp.buf.definition, opts)
+	map("n", "K", vim.lsp.buf.hover, opts)
 
 	-- run any extensions for this server/client
 	local has_extension, extended_on_attach = pcall(get_on_attach_extension, client.name)

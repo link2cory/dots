@@ -3,7 +3,7 @@ local colors = {}
 local hi = vim.highlight.create
 
 colors.setup = function()
-	everblush.setup({ nvim_tree = { contrast = true } })
+	everblush.setup({ nvim_tree = { contrast = false } })
 
 	local comment = "#404749"
 	local contrast = "#161d1f"
@@ -29,7 +29,7 @@ colors.setup = function()
 	local color15 = "#bdc3c2"
 
 	-- everblush theme does not include many highlight groups
-	hi("PMenu", { guibg = "#181f21", guifg = "#dadada" })
+	-- hi("PMenu", { guibg = color13, guifg = "#dadada" })
 	hi("TSComment", { guifg = "#404749" })
 	hi("LineNr", { guifg = "#404749" })
 
