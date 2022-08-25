@@ -23,7 +23,8 @@ set $menu rofi -show run | xargs swaymsg exec --
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg $HOME/images/outsetIsland.png fill 
+# /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 # Example configuration:
 #
@@ -108,6 +109,9 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
 #
+# displays
+    set $display_primary HDMI-A-1
+    set $display_secondary DP-2
 # Workspaces:
 #
     # Switch to workspace
@@ -134,6 +138,18 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+
+    workspace 1 output $display_primary
+    workspace 2 output $display_primary
+    workspace 3 output $display_primary
+    workspace 4 output $display_primary
+    workspace 5 output $display_primary
+
+    workspace 6 output $display_secondary
+    workspace 7 output $display_secondary
+    workspace 8 output $display_secondary
+    workspace 9 output $display_secondary
+    workspace 10 output $display_secondary
 #
 # Layout stuff:
 #
@@ -200,18 +216,22 @@ mode "resize" {
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-bar {
-    position top
+# bar {
+#     position top
+#
+#     # When the status_command prints a new line to stdout, swaybar updates.
+#     # The default just shows the current date and time.
+#     status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+#
+#     colors {
+#         statusline #ffffff
+#         background #323232
+#         inactive_workspace #32323200 #32323200 #5c5c5c
+#     }
+# }
 
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-}
+focus_follows_mouse no
+# bar swaybar_command waybar
+exec waybar
 
 include /etc/sway/config.d/*
