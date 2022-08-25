@@ -1,0 +1,4 @@
+discord
+ncmpcpp
+mopidy
+transmission-cli
