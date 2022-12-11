@@ -35,6 +35,7 @@ options.setup = function()
 		wrap = false, -- display lines as one long line
 		scrolloff = 8, -- is one of my fav
 		sidescrolloff = 8,
+		laststatus = 3, -- only show 1 status line
 	}
 
 	vim.opt.shortmess:append("c")

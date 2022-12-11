@@ -25,25 +25,27 @@ colors.setup = function()
 	local color11 = "#f4d67a"
 	local color12 = "#71baf2"
 	local color13 = "#ce89df"
-	local color14 = "##67cbe7"
+	local color14 = "#67cbe7"
 	local color15 = "#bdc3c2"
 
 	-- everblush theme does not include many highlight groups
-	-- hi("PMenu", { guibg = color13, guifg = "#dadada" })
-	hi("TSComment", { guifg = "#404749" })
-	hi("LineNr", { guifg = "#404749" })
+	-- vim.api.nvim_set_hl(0, "PMenu", { bg = color13, fg = "#dadada" })
+	vim.api.nvim_set_hl(0, "TSComment", { fg = "#404749" })
+	vim.api.nvim_set_hl(0, "LineNr", { fg = "#404749" })
+	vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#b3b9b8" })
 
-	hi("DiagnosticError", { guifg = "#e57474" })
-	hi("DiagnosticWarn", { guifg = "#e5c76b" })
-	hi("DiagnosticInfo", { guifg = "#b3b9b8" })
-	hi("DiagnosticHint", { guifg = "#8ccf7e" })
+	vim.api.nvim_set_hl(0, "DiagnosticError", { fg = "#e57474" })
+	vim.api.nvim_set_hl(0, "DiagnosticWarn", { fg = "#e5c76b" })
+	vim.api.nvim_set_hl(0, "DiagnosticInfo", { fg = "#b3b9b8" })
+	vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = "#8ccf7e" })
+	vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#8ccf7e", bg = "None" })
 
-	-- hi("DiagnosticError", { guibg = "#181f21", guifg = "#ffffff" })
-	-- hi("DiagnosticWarn", { guibg = "#181f21", guifg = "#ffffff" })
-	-- hi("DiagnosticInfo", { guibg = "#181f21", guifg = "#ffffff" })
-	-- hi("DiagnosticHint", { guibg = "#181f21", guifg = "#ffffff" })
+	-- vim.api.nvim_set_hl(0, "DiagnosticError", { bg = "#181f21", fg = "#ffffff" })
+	-- vim.api.nvim_set_hl(0, "DiagnosticWarn", { bg = "#181f21", fg = "#ffffff" })
+	-- vim.api.nvim_set_hl(0, "DiagnosticInfo", { bg = "#181f21", fg = "#ffffff" })
+	-- vim.api.nvim_set_hl(0, "DiagnosticHint", { bg = "#181f21", fg = "#ffffff" })
 	--
-	hi("CursorLine", { guibg = color0 })
+	vim.api.nvim_set_hl(0, "CursorLine", { bg = color0 })
 end
 
 return colors

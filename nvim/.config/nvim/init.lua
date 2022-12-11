@@ -14,6 +14,7 @@ local autopairs = require("user.autopairs")
 local lualine = require("user.lualine")
 local luasnip = require("user.luasnip")
 local colorizer = require("user.colorizer")
+local session = require("user.session")
 
 options.setup()
 plugins.setup()

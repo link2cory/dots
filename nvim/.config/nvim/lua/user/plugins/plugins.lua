@@ -15,7 +15,7 @@ plugins.setup = function(use)
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use({ "neovim/nvim-lspconfig" })
 	use({ "williamboman/nvim-lsp-installer" })
-	use({ "jose-elias-alvarez/null-ls.nvim" })
+	use({ "jose-elias-alvarez/null-ls.nvim", commit = "bb19d790e139713eaddbcd8fd8ee58a23d290bda" })
 	use({ "L3MON4D3/LuaSnip" })
 	use({ "hrsh7th/nvim-cmp" })
 	use({ "hrsh7th/cmp-buffer" })
@@ -37,6 +37,7 @@ plugins.setup = function(use)
 	use({ "windwp/nvim-autopairs" })
 	use({ "nvim-lualine/lualine.nvim", requires = "kyazdani42/nvim-web-devicons" })
 	use({ "norcalli/nvim-colorizer.lua" })
+  use({ "rmagatti/auto-session" })
 end
 
 return plugins

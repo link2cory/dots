@@ -14,6 +14,7 @@ configs.setup = function()
 		"sumneko_lua",
 		"intelephense",
 		"tsserver",
+		"eslint",
 	}
 
 	for _, server in ipairs(servers) do

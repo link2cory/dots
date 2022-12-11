@@ -45,6 +45,7 @@ null_ls.setup = function()
 				"fix",
 				"--no-interaction",
 				"--quiet",
+				-- "tests/Unit/Jobs/Pipeline/Process/AggregateTest.php",
 				"$FILENAME",
 			},
 			to_stdin = false,

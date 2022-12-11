@@ -25,10 +25,10 @@ keymap.setup = function()
 
 	-- buffers
 	map("n", "<C-s>", "<cmd>lua vim.api.nvim_command('write')<cr>", opts)
-	map("n", "<C-w>", "<cmd>lua vim.api.nvim_command('close')<cr>", opts)
+	map("n", "<C-w>", ":bn|bd#<cr>", opts)
 
 	-- telescope
-	map("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
+	map("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files({hidden=true})<cr>", opts)
 	map("n", "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
 	map("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>", opts)
 
