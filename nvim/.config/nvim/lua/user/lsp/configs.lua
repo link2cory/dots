@@ -11,7 +11,7 @@ configs.setup = function()
 	end
 
 	local servers = {
-		"sumneko_lua",
+		"lua_ls",
 		"intelephense",
 		"tsserver",
 		"eslint",

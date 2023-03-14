@@ -8,7 +8,7 @@ m.setup = function()
 	lualine.setup({
 		options = {
 			icons_enabled = true,
-			theme = "auto",
+			theme = "everblush",
 			component_separators = { left = "", right = "" },
 			section_separators = { left = "", right = "" },
 			disabled_filetypes = {},
@@ -37,6 +37,12 @@ m.setup = function()
 		},
 		tabline = {},
 		extensions = {},
+		winbar = {
+			lualine_a = { "filename" },
+		},
+		inactive_winbar = {
+			lualine_a = { "filename" },
+		},
 	})
 end
 

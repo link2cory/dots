@@ -20,8 +20,10 @@ keymap.setup = function()
 	map("n", "<C-l>", "<C-w>l", opts)
 
 	-- Navigate buffers
-	map("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
-	map("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
+	-- map("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
+	-- map("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
+	map("n", "<S-l>", ":bn<CR>", opts)
+	map("n", "<S-h>", ":bp<CR>", opts)
 
 	-- buffers
 	map("n", "<C-s>", "<cmd>lua vim.api.nvim_command('write')<cr>", opts)

@@ -4,6 +4,7 @@ local hi = vim.highlight.create
 
 colors.setup = function()
 	everblush.setup({ nvim_tree = { contrast = false } })
+	vim.cmd("colorscheme everblush")
 
 	local comment = "#404749"
 	local contrast = "#161d1f"
@@ -31,6 +32,7 @@ colors.setup = function()
 	-- everblush theme does not include many highlight groups
 	-- vim.api.nvim_set_hl(0, "PMenu", { bg = color13, fg = "#dadada" })
 	vim.api.nvim_set_hl(0, "TSComment", { fg = "#404749" })
+	vim.api.nvim_set_hl(0, "@float", { fg = "#e5c76b" })
 	vim.api.nvim_set_hl(0, "LineNr", { fg = "#404749" })
 	vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#b3b9b8" })
 
