@@ -38,7 +38,7 @@ options.setup = function()
 		laststatus = 3, -- only show 1 status line
 		-- foldmethod = "expr",
 		-- foldexpr = "nvim_treesitter#foldexpr()",
-  --   foldminlines = 20
+		--   foldminlines = 20
 	}
 
 	vim.opt.shortmess:append("c")

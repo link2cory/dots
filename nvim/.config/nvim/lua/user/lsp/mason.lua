@@ -1,7 +1,6 @@
 local mason = {}
 
 mason.setup = function()
-	print("hellooooooo")
 	local status_ok, mason = pcall(require, "mason")
 	if not status_ok then
 		return

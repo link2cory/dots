@@ -1,0 +1,12 @@
+text-color=#b3b9b8ff
+background-color=#141b1eff
+font=iosevka 18
+width=600
+height=500
+#outer-margin=0,100
+margin=40,30
+border-color=#67b0e8ff
+border-radius=10
+padding=10
+default-timeout=5000
+layer=overlay

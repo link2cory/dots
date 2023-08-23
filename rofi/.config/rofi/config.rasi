@@ -37,7 +37,7 @@ inputbar {
 }
 
 textbox {
-    str: "";
+    str: "🍍";
     expand: false;
     padding: 0 1% 0;
     horizontal-align: 0.5;

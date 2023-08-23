@@ -10,6 +10,7 @@ plugins.setup = function(use)
 	})
 	use({
 		"nvim-telescope/telescope.nvim",
+    tag = '0.1.1',
 		requires = { { "nvim-lua/plenary.nvim" }, { "nvim-telescope/telescope-fzf-native.nvim" } },
 	})
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
@@ -25,6 +26,7 @@ plugins.setup = function(use)
 	use({ "saadparwaiz1/cmp_luasnip" })
 	use({ "hrsh7th/cmp-nvim-lsp" })
 	use({ "hrsh7th/cmp-nvim-lua" })
+  use({ "tpope/vim-fugitive"})
 	use({
 		"folke/neodev.nvim",
 		config = function()
@@ -48,6 +50,15 @@ use {
     "antoinemadec/FixCursorHold.nvim",
     "olimorris/neotest-phpunit"
   }
+}
+use {
+    'Equilibris/nx.nvim',
+    requires = {
+        'nvim-telescope/telescope.nvim',
+    },
+    config = function()
+        require("nx").setup {}
+    end
 }
 end
 

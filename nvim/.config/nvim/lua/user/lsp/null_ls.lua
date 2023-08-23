@@ -17,6 +17,7 @@ null_ls.setup = function()
 		on_attach = function(client, bufnr)
 			print(client.name)
 			if client.supports_method("textDocument/formatting") then
+				print("ehhlo")
 				vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
 				vim.api.nvim_create_autocmd("BufWritePre", {
 					group = augroup,

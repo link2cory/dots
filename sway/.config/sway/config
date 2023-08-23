@@ -7,6 +7,9 @@
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
+# disable xwayland
+xwayland disable
+
 set $mod Mod4
 # Home row direction keys, like vim
 set $left h
@@ -18,7 +21,22 @@ set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu rofi -show run | xargs swaymsg exec --
+# set $menu wofi -show run | xargs swaymsg exec --
+set $menu fuzzel
+set $streaming_layout swaymsg -r resize set 1920 px 1080 px
+set $wmfocus wmfocus
+set $suspend systemctl suspend
+
+set $screenshot grim -g "$(slurp)" - | wl-copy
+# set $screenshot Print exec kitty -e ~/.local/bin/save_screenshot
+
+set $web_browser exec firefox
+
+# Your preferred emoji picker
+# set $emoji_picker rofimoji --skin-tone medium-light --hidden-descriptions  --selector-args="-theme ~/.config/rofi/rofimoji.rasi"
+set $emoji_picker env BEMOJI_PICKER_CMD="fuzzel --dmenu" bemoji -t
+
+set $test_notification notify-send "Testing notifications with a longer message with other things so that i have a good idea of a longer notification's content" -a Firefox
 
 ### Output configuration
 #
@@ -72,6 +90,15 @@ set $menu rofi -show run | xargs swaymsg exec --
     # Start your launcher
     bindsym $mod+r exec $menu
 
+    bindsym $mod+s exec $screenshot
+
+    bindsym $mod+o exec $emoji_picker
+    bindsym $mod+n exec $test_notification
+
+    bindsym $mod+p exec $streaming_layout
+    bindsym $mod+F12 exec $suspend
+
+
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
@@ -93,10 +120,10 @@ set $menu rofi -show run | xargs swaymsg exec --
     bindsym $mod+$up focus up
     bindsym $mod+$right focus right
     # Or use $mod+[up|down|left|right]
-    bindsym $mod+Left focus left
+    # bindsym $mod+Left workspace prev
     bindsym $mod+Down focus down
     bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
+    # bindsym $mod+Right workspace next
 
     # Move the focused window with the same, but add Shift
     bindsym $mod+Shift+$left move left
@@ -110,8 +137,10 @@ set $menu rofi -show run | xargs swaymsg exec --
     bindsym $mod+Shift+Right move right
 #
 # displays
-    set $display_primary HDMI-A-1
-    set $display_secondary DP-2
+    set $display_primary HDMI-A-1 
+    # output $display_primary scale 2 res 3840x2160 
+    set $display_secondary eDP-1
+    output $display_secondary disable
 # Workspaces:
 #
     # Switch to workspace
@@ -125,6 +154,8 @@ set $menu rofi -show run | xargs swaymsg exec --
     bindsym $mod+8 workspace number 8
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
+    # bindsym $mod+h workspace prev
+    # bindsym $mod+l workspace next
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number 1
     bindsym $mod+Shift+2 move container to workspace number 2
@@ -139,17 +170,22 @@ set $menu rofi -show run | xargs swaymsg exec --
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 
-    workspace 1 output $display_primary
-    workspace 2 output $display_primary
-    workspace 3 output $display_primary
-    workspace 4 output $display_primary
-    workspace 5 output $display_primary
+    # workspace 1 output $display_primary
+    # workspace 2 output $display_primary
+    # workspace 3 output $display_primary
+    # workspace 4 output $display_primary
+    # workspace 5 output $display_primary
 
-    workspace 6 output $display_secondary
-    workspace 7 output $display_secondary
-    workspace 8 output $display_secondary
-    workspace 9 output $display_secondary
-    workspace 10 output $display_secondary
+    # workspace 6 output $display_secondary
+    # workspace 7 output $display_secondary
+    # workspace 8 output $display_secondary
+    # workspace 9 output $display_secondary
+    # workspace 10 output $display_secondary
+    #
+
+    # workspace tunes output $display_secondary
+
+
 #
 # Layout stuff:
 #
@@ -160,13 +196,14 @@ set $menu rofi -show run | xargs swaymsg exec --
     bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
+    bindsym $mod+g layout stacking
     bindsym $mod+w layout tabbed
     bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
-    bindsym $mod+f fullscreen
-
+    bindsym $mod+f $wmfocus
+    bindsym $mod+home fullscreen
+    bindsym $mod+i $web_browser
     # Toggle the current focus between tiling and floating mode
     bindsym $mod+Shift+space floating toggle
 
@@ -190,6 +227,12 @@ set $menu rofi -show run | xargs swaymsg exec --
 #
 # Resizing containers:
 #
+default_border pixel
+client.focused #4c7899 #e57474 #ffffff #e57474 #e57474
+default_border pixel
+gaps inner 10
+# workspace_layout tabbed
+# hide_edge_borders vertical
 mode "resize" {
     # left will shrink the containers width
     # right will grow the containers width
@@ -210,6 +253,7 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
 #bindsym $mod+r mode "resize"
 
 #
@@ -232,6 +276,16 @@ mode "resize" {
 
 focus_follows_mouse no
 # bar swaybar_command waybar
-exec waybar
+
+exec swaycons
+exec /home/cory/.local/bin/toggleWlSunset
+exec sworkstyle &> /tmp/sworkstyle.log
+exec mako
+
+bar {
+    swaybar_command waybar
+}
+font pango:Iosevka 14
+
 
 include /etc/sway/config.d/*

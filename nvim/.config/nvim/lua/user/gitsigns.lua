@@ -67,6 +67,8 @@ gitsigns.setup = function()
 				vim.keymap.set(mode, l, r, opts)
 			end
 
+			map("n", "<leader>gj", gs.next_hunk)
+			map("n", "<leader>gk", gs.prev_hunk)
 			-- Navigation
 			map("n", "]c", function()
 				if vim.wo.diff then

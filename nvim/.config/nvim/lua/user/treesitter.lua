@@ -15,6 +15,7 @@ treesitter.setup = function()
 			"html",
 			"css",
 			"json",
+			"rust",
 		},
 		highlight = {
 			enable = true, -- false will disable the whole extension

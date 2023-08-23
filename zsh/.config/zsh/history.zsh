@@ -1,1 +1,2 @@
 setopt share_history
+setopt histignoredups

@@ -6,7 +6,7 @@ m.setup = function()
 		return
 	end
 	session.setup({
-		log_level = "error",
+		log_level = "verbose",
 		auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
 	})
 end

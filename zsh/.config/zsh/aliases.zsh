@@ -22,6 +22,9 @@ alias grep='grep --color=auto --exclude-dir={.git}'
 # use bat instead of cat
 alias cat='bat'
 
+# use btop instead of top
+alias top='btop'
+
 # tree shorthand
 alias t='tree'
 
@@ -47,6 +50,7 @@ alias gm='git merge'
 alias gds='git diff --staged'
 alias gcp="git cherry-pick"
 alias gcpn="git cherry-pick --no-commit"
+alias gdsm="git log --left-only --pretty=format:"%h%x09%an%x09%ad%x09%s" --cherry-pick origin/staging...origin/master"
 
 # docker 
 alias di='docker image'
@@ -70,3 +74,19 @@ alias dpa='docker-prune-all'
 
 
 alias ss='grim -g "$(slurp)" - | wl-copy'
+
+# code generators
+alias plop='npm run plop'
+
+
+# tiphuas aliases
+alias artisan='docker exec -it laradock-workspace-1 php artisan'
+
+# npm entrypoints
+alias cdk='npx cdk'
+
+
+# custom application entrypoints
+# alias obsidian='~/.local/bin/obsidian'
+alias workbench='~/.local/bin/mysql-workbench'
+alias img='swayimg'

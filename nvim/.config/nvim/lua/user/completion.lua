@@ -100,13 +100,14 @@ completion.setup = function()
 		formatting = {
 			fields = { "kind", "abbr", "menu" },
 			format = function(entry, vim_item)
+        vim_item.dup = { buffer = 1, path = 1, nvim_lsp = 0, luasnip = 0 }
 				-- Kind icons
 				vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
 				-- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
 				vim_item.menu = ({
 					nvim_lsp = "[LSP]",
-					luasnip = "[Snippet]",
-					buffer = "[Buffer]",
+					luasnip = "🧠",
+					buffer = "❌",
 					path = "[Path]",
 				})[entry.source.name]
 				return vim_item
@@ -114,7 +115,7 @@ completion.setup = function()
 		},
 		sources = {
 			{ name = "nvim_lsp" },
-			{ name = "luasnip" },
+			{ name = "luasnip", dup = 0 },
 			{ name = "buffer" },
 			{ name = "path" },
 		},

@@ -5,26 +5,31 @@ m.setup = function()
 		return
 	end
 
+	print("luasnip config!!!")
+
 	local types = require("luasnip.util.types")
 
 	ls.config.set_config({
 		history = true,
 		updateevents = "TextChanged,TextChangedI",
 		enable_autosnippets = true,
-		ext_opts = {
-			[types.choiceNode] = {
-				active = {
-					virt_text = { { "<-", "Error" } },
-				},
-			},
-		},
+		-- ext_opts = {
+		-- 	[types.choiceNode] = {
+		-- 		active = {
+		-- 			virt_text = { { "<-", "Error" } },
+		-- 		},
+		-- 	},
+		-- },
 	})
 
 	ls.add_snippets("all", { ls.snippet("test", { ls.text_node("test snippet") }) })
+	ls.add_snippets("all", { ls.snippet("testyTest", { ls.text_node("test snippet") }) })
+	ls.add_snippets("all", { ls.snippet("testyTest2", { ls.text_node("test snippet") }) })
+	ls.add_snippets("all", { ls.snippet("testyTest3", { ls.text_node("test snippet") }) })
+	ls.add_snippets("all", { ls.snippet("anotherThing", { ls.text_node("test snippet") }) })
 
 	ls.snippets = {
 		all = {
-			--ls.snippet("test", { ls.text_node("test snippet") }),
 			ls.parser.parse_snippet("expand", "-- this is what was expanded!"),
 		},
 		lua = {},
@@ -36,4 +41,5 @@ m.setup = function()
 		end
 	end, { noremap = true, silent = true })
 end
+
 return m

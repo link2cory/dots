@@ -12,6 +12,9 @@ source ~/.config/zsh/startup.zsh
 source ~/.config/zsh/keybinds.zsh
 source ~/.config/zsh/autosuggestions.zsh
 source ~/.config/zsh/history.zsh
+source ~/.config/zsh/sensitive.zsh
+
+NIXOS_OZONE_WL=1
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -23,8 +26,13 @@ bindkey -v
 zstyle :compinstall filename '/home/cory/.zshrc'
 
 autoload -Uz compinit
+fpath+=~/.config/zsh/completions
 compinit
 # End of lines added by compinstall
+#
+path+=('/home/cory/.local/bin/')
+path+=('/home/cory/.cargo/bin/')
+export path
 
 QT_QPA_PLATFORM=wayland
 
