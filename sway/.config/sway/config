@@ -138,9 +138,11 @@ set $test_notification notify-send "Testing notifications with a longer message 
 #
 # displays
     set $display_primary HDMI-A-1 
-    # output $display_primary scale 2 res 3840x2160 
+    # output $display_primary
+    # output $display_primary scale 2 res 3840x2160
+    # output $display_primary disable
     set $display_secondary eDP-1
-    output $display_secondary disable
+    # output $display_secondary disable
 # Workspaces:
 #
     # Switch to workspace
@@ -170,17 +172,17 @@ set $test_notification notify-send "Testing notifications with a longer message 
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 
-    # workspace 1 output $display_primary
-    # workspace 2 output $display_primary
-    # workspace 3 output $display_primary
-    # workspace 4 output $display_primary
-    # workspace 5 output $display_primary
-
-    # workspace 6 output $display_secondary
-    # workspace 7 output $display_secondary
-    # workspace 8 output $display_secondary
-    # workspace 9 output $display_secondary
-    # workspace 10 output $display_secondary
+    workspace 1 output $display_primary
+    workspace 2 output $display_primary
+    workspace 3 output $display_primary
+    workspace 4 output $display_primary
+    workspace 5 output $display_primary
+#
+    workspace 6 output $display_secondary
+    workspace 7 output $display_secondary
+    workspace 8 output $display_secondary
+    workspace 9 output $display_secondary
+    workspace 10 output $display_secondary
     #
 
     # workspace tunes output $display_secondary

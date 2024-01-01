@@ -81,9 +81,15 @@ alias plop='npm run plop'
 
 # tiphuas aliases
 alias artisan='docker exec -it laradock-workspace-1 php artisan'
+# alias redeploy 'npx cdk destroy hello --context env=sbx -f && npx cdk deploy hello --context env=sbx --require-approval never'
+# Define a function with parameters
+redeploy() {
+    npx cdk destroy $1 --context env=${2:-sbx} -f && npx cdk deploy $1 --context env=${2:-sbx} --require-approval never
+}
 
 # npm entrypoints
 alias cdk='npx cdk'
+
 
 
 # custom application entrypoints

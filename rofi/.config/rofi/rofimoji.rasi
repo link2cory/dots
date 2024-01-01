@@ -1,0 +1,38 @@
+@import "config"
+
+textbox {
+  vertical-align:   0.5;
+  horizontal-align: 0.5;
+}
+
+listview {
+  columns:       8;
+  lines:         7;
+  cycle:         true;
+  dynamic:       true;
+  layout:        vertical;
+  flow:          horizontal;
+  reverse:       false;
+  fixed-height:  true;
+  fixed-columns: true;
+}
+
+element {
+  orientation: vertical;
+}
+
+element-text {
+  vertical-align:   0.5;
+  horizontal-align: 0.5;
+  font:            "joypixels 18";
+}
+
+
+window {
+	transparency: "real";
+	height: 60%;
+  width: 22%;
+	location: north;
+	x-offset: 0%;
+	y-offset: 20%;
+}
