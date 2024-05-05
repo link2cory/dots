@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Get the absolute path of the directory containing the script
+script_dir=$(realpath "$(dirname "$0")")
+
+# Define the path to the package list file
+package_list_file="$script_dir/../.packages/raw_packages.txt"
+
+# Check if the package list file exists
+if [ ! -f "$package_list_file" ]; then
+    echo "Package list file not found: $package_list_file"
+    exit 1
+fi
+
+# Read the package list from the file and pipe its content into paru -S
+cat "$package_list_file" | xargs paru -S
