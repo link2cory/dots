@@ -1,0 +1,4 @@
+#!/bin/sh
+
+rclone mount gdrive: ~/gdrive --vfs-cache-mode full --daemon
+

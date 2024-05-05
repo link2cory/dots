@@ -1,0 +1,4 @@
+#!/bin/bash
+
+pacman -Qe | expac --timefmt='%F %T' '%n %v %l' - | sort -k3
+

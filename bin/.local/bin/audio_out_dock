@@ -1,0 +1,3 @@
+#!/bin/sh
+
+pactl set-default-sink alsa_output.usb-CalDigit_Inc._CalDigit_TS4_Audio_-_Front-00.analog-stereo
