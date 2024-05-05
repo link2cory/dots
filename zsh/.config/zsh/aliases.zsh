@@ -25,8 +25,12 @@ alias cat='bat'
 # use btop instead of top
 alias top='btop'
 
+# listings
+alias ls='exa --group-directories-first --git --long --header --icons --sort=extension'
+alias la='exa --group-directories-first --git --long --header --icons --sort=extension --all'
+alias tree='exa --group-directories-first --git --long --header --icons --sort=extension --all --tree --level=2'
+
 # tree shorthand
-alias t='tree'
 
 # firefox shortcut
 alias ff='firefox'
@@ -81,11 +85,16 @@ alias plop='npm run plop'
 
 # tiphuas aliases
 alias artisan='docker exec -it laradock-workspace-1 php artisan'
+
+# phpunit() {
+#   docker exec -it laradock-workspace-1 php artisan test
+# }
 # alias redeploy 'npx cdk destroy hello --context env=sbx -f && npx cdk deploy hello --context env=sbx --require-approval never'
 # Define a function with parameters
 redeploy() {
     npx cdk destroy $1 --context env=${2:-sbx} -f && npx cdk deploy $1 --context env=${2:-sbx} --require-approval never
 }
+alias psm="jira issue list --jql 'assignee = currentUser() AND status != Done' -p PSM"
 
 # npm entrypoints
 alias cdk='npx cdk'
