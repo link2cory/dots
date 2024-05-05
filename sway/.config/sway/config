@@ -35,6 +35,7 @@ set $web_browser exec firefox
 # Your preferred emoji picker
 # set $emoji_picker rofimoji --skin-tone medium-light --hidden-descriptions  --selector-args="-theme ~/.config/rofi/rofimoji.rasi"
 set $emoji_picker env BEMOJI_PICKER_CMD="fuzzel --dmenu" bemoji -t
+set $obsidian obsidian --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform-hint=auto
 
 set $test_notification notify-send "Testing notifications with a longer message with other things so that i have a good idea of a longer notification's content" -a Firefox
 
@@ -111,6 +112,9 @@ set $test_notification notify-send "Testing notifications with a longer message 
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+    # open obsidian
+    # bindsym $mod+o exec $obsidian
 #
 # Moving around:
 #
@@ -135,6 +139,7 @@ set $test_notification notify-send "Testing notifications with a longer message 
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
+
 #
 # displays
     set $display_primary HDMI-A-1 
