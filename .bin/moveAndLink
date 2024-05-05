@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# Check if two arguments are provided
+if [ $# -ne 1 ]; then
+	echo "Usage: $0 <file_path>"
+	exit 1
+fi
+
+# Get absolute path of the parent directory
+# parent_dir=$(realpath "$2")
+
+# Check if parent directory exists
+# if [ ! -d "$parent_dir" ]; then
+# 	echo "Parent directory does not exist"
+# 	exit 1
+# fi
+
+# Get the target file path
+file_path="$1"
+
+# Check if file or directory exists
+if [ ! -e "$file_path" ]; then
+	echo "File or directory does not exist"
+	exit 1
+fi
+
+# Extract file/directory name
+target_name=$(basename "$file_path")
+
+# Create the .config directory
+# TODO: detect
+# config_dir="../$target_name/.config"
+
+script_dir=$(realpath "$(dirname "$0")")
+parent_dir=$(realpath "$script_dir/..")
+config_dir="$parent_dir/$target_name/.config"
+# echo "$config_dir"
+mkdir -p "$config_dir"
+
+# Move the target file/directory to .config directory
+mv "$file_path" "$config_dir"
+
+# Create symbolic link
+ln -s "$config_dir/$target_name" "$file_path"
+
+echo "Successfully moved '$file_path' to '$config_dir' and created symbolic link"
