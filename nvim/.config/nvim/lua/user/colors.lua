@@ -3,8 +3,8 @@ local colors = {}
 local hi = vim.highlight.create
 
 colors.setup = function()
-	everblush.setup({ nvim_tree = { contrast = false } })
-	vim.cmd("colorscheme everblush")
+	--everblush.setup({ nvim_tree = { contrast = false } })
+	-- vim.cmd("colorscheme everblush")
 
 	local comment = "#404749"
 	local contrast = "#161d1f"

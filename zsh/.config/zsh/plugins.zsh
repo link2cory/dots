@@ -1,4 +1,4 @@
-source /usr/share/zsh/share/antigen.zsh
+source ~/.antigen/init.zsh
 
 antigen theme romkatv/powerlevel10k
 antigen bundle zsh-users/zsh-autosuggestions

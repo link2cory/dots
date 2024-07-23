@@ -7,12 +7,12 @@ fi
 
 source ~/.config/zsh/plugins.zsh
 source ~/.config/zsh/aliases.zsh
-source ~/.config/zsh/fzf.zsh
-source ~/.config/zsh/startup.zsh
+# source ~/.config/zsh/fzf.zsh
+# source ~/.config/zsh/startup.zsh
 source ~/.config/zsh/keybinds.zsh
-source ~/.config/zsh/autosuggestions.zsh
+# source ~/.config/zsh/autosuggestions.zsh
 source ~/.config/zsh/history.zsh
-source ~/.config/zsh/sensitive.zsh
+# source ~/.config/zsh/sensitive.zsh
 
 NIXOS_OZONE_WL=1
 

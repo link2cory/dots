@@ -78,12 +78,19 @@
     stow
     pkgs.antigen
     firefox
-    keepass
+    keepassxc
     rclone
     xivlauncher
     pkgs.home-manager
-    
-    # hyprland
+    eza
+    bat
+    gcc
+    waybar
+    obsidian
+    slack
+    spotify
+    discord
+    iosevka
   ];
 
   programs.hyprland.enable = true;
@@ -116,5 +123,18 @@
   system.stateVersion = "23.11"; # Did you read the comment?
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  services.printing = {
+      enable = true;
+      drivers = [ pkgs.hplip ];
+  };
+
+  services.avahi = {
+      enable = true;
+      nssmdns = true;
+      openFirewall = true;
+  };
+
+  hardware.pulseaudio.enable = true;
 
 }
