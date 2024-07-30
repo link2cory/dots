@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
@@ -15,6 +15,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.initrd.luks.devices."luks-fa4c98c5-f636-4f46-ba13-0c0d3ab29c44".device = "/dev/disk/by-uuid/fa4c98c5-f636-4f46-ba13-0c0d3ab29c44";
+  boot.initrd.kernelModules = [ "amdgpu" ];
   networking.hostName = "mini"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -50,6 +51,7 @@
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.defaultUserShell = pkgs.zsh; 
   users.users.cory = {
     isNormalUser = true;
     description = "Cory";
@@ -61,6 +63,12 @@
   nixpkgs.config.allowUnfree = true;
 
   xdg.portal.enable = true;
+
+  # fonts
+  fonts.packages = with pkgs; [
+    iosevka
+    nerdfonts
+  ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -90,10 +98,34 @@
     slack
     spotify
     discord
-    iosevka
+    qmk
+    unzip
+    mangohud
+    protonup
   ];
 
   programs.hyprland.enable = true;
+  programs.hyprland.xwayland.enable = true;
+  programs.zsh.enable = true;
+  programs.neovim.enable = true;
+
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
+  programs.steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+      localNetworkGameTransfers.openFirewall = true;
+      gamescopeSession.enable = true;
+  };
+  services.xserver.videoDrivers = ["amdgpu"];
+  programs.gamemode.enable = true;
+  environment.sessionVariables = {
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/cory/.steam/root/compatibilitytools.d";
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -135,6 +167,10 @@
       openFirewall = true;
   };
 
-  hardware.pulseaudio.enable = true;
+  services.blueman.enable = true;
 
+  hardware.pulseaudio.enable = true;
+  hardware.keyboard.qmk.enable = true;
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
 }
