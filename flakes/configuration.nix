@@ -64,6 +64,8 @@
 
   xdg.portal.enable = true;
 
+  # clipboard.providers.wl-copy.enable = true;
+
   # fonts
   fonts.packages = with pkgs; [
     iosevka
@@ -94,6 +96,9 @@
     bat
     gcc
     waybar
+    grim
+    slurp
+    wl-clipboard
     obsidian
     slack
     spotify
@@ -122,6 +127,7 @@
       gamescopeSession.enable = true;
   };
   services.xserver.videoDrivers = ["amdgpu"];
+  services.gnome.gnome-keyring.enable = true;
   programs.gamemode.enable = true;
   environment.sessionVariables = {
     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/cory/.steam/root/compatibilitytools.d";
