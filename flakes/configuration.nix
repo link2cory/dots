@@ -16,6 +16,14 @@
 
   boot.initrd.luks.devices."luks-fa4c98c5-f636-4f46-ba13-0c0d3ab29c44".device = "/dev/disk/by-uuid/fa4c98c5-f636-4f46-ba13-0c0d3ab29c44";
   boot.initrd.kernelModules = [ "amdgpu" ];
+  # boot.kernelModules = [ "v4l2loopback" ];
+  boot.extraModulePackages = with config.boot.kernelPackages; [ 
+    pkgs.linuxPackages.v4l2loopback 
+  ];
+  boot.extraModprobeConfig = ''
+    options v4l2loopback devices=1 video_nr=1 card_label = "OBS Cam" exclusive_caps=1
+  '';
+  security.polkit.enable = true;
   networking.hostName = "mini"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -107,7 +115,15 @@
     unzip
     mangohud
     protonup
+    (pkgs.wrapOBS {
+      plugins = with pkgs.obs-studio-plugins; [
+        wlrobs
+        obs-backgroundremoval
+        obs-pipewire-audio-capture
+      ];
+    })
   ];
+
 
   programs.hyprland.enable = true;
   programs.hyprland.xwayland.enable = true;
