@@ -83,7 +83,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     git
     mako
@@ -91,7 +90,6 @@
     pkgs.xdg-desktop-portal-gtk
     kitty
     fuzzel
-    neovim
     zsh
     stow
     pkgs.antigen
@@ -115,6 +113,13 @@
     unzip
     mangohud
     protonup
+    mupdf
+    vlc
+    jq
+    bash
+    awscli2
+    yazi
+    ueberzug
     (pkgs.wrapOBS {
       plugins = with pkgs.obs-studio-plugins; [
         wlrobs
@@ -122,13 +127,17 @@
         obs-pipewire-audio-capture
       ];
     })
+    # enable drawing tablet support
+    pkgs.linuxKernel.packages.linux_6_9.digimend
   ];
 
+
+  # enable drawing tablet support
+  services.xserver.digimend.enable = true;
 
   programs.hyprland.enable = true;
   programs.hyprland.xwayland.enable = true;
   programs.zsh.enable = true;
-  programs.neovim.enable = true;
 
   hardware.opengl = {
     enable = true;
