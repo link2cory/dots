@@ -33,6 +33,10 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.nameservers = [ "8.8.8.8" "8.8.4.4" ];  # Google DNS
+
+  # make shebangs work
+  services.envfs.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
@@ -58,6 +62,22 @@
     xkbVariant = "";
   };
 
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    pulse.enable = true;
+    wireplumber = {
+      enable = true;
+    };
+  };
+  # services.wireplumber.enable = true;
+  # services.xdg.portal = {
+  #   enable = true;
+  #   extraPortals = [ pkgs.xdg-desktop-portal-wlr ];  # For Wayland, use the wlr portal
+  # };
+  xdg.portal.config.common.default = "*";
+  xdg.portal.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.defaultUserShell = pkgs.zsh; 
   users.users.cory = {
@@ -70,7 +90,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  xdg.portal.enable = true;
 
   # clipboard.providers.wl-copy.enable = true;
 
@@ -80,9 +99,21 @@
     nerdfonts
   ];
 
+  # docker
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    google-chrome
+    zathura
+    poppler
     wget
     git
     mako
@@ -117,9 +148,37 @@
     vlc
     jq
     bash
+    bottles
     awscli2
+    ssm-session-manager-plugin
     yazi
     ueberzug
+    jira-cli-go
+    ollama
+    zoom
+    cups
+    hplip
+    gimp
+    imagemagick
+    whois
+    inetutils
+    bind
+    openvpn
+    mysql-workbench
+    httpie
+    nodejs
+    # nodePackages.nx
+    wine
+    winetricks
+    lutris
+    sambaFull
+    vulkan-tools
+    vulkan-loader
+    docker-compose
+    transmission
+    signal-desktop
+    glab
+    pulseaudio
     (pkgs.wrapOBS {
       plugins = with pkgs.obs-studio-plugins; [
         wlrobs
@@ -131,6 +190,10 @@
     pkgs.linuxKernel.packages.linux_6_9.digimend
   ];
 
+  services.ollama = {
+    enable = true;
+    acceleration = "rocm";
+  };
 
   # enable drawing tablet support
   services.xserver.digimend.enable = true;
@@ -200,7 +263,7 @@
 
   services.blueman.enable = true;
 
-  hardware.pulseaudio.enable = true;
+  # hardware.pulseaudio.enable = true;
   hardware.keyboard.qmk.enable = true;
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
