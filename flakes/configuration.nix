@@ -70,13 +70,39 @@
       enable = true;
     };
   };
+#   services.xdg.portal = {
+#   enable = true;
+#   extraPortals = [ pkgs.xdg-desktop-portal-wlr ]; # Replace with xdg-desktop-portal-gtk for GNOME
+# };
+  # systemd.user.services.xdg-desktop-portal = {
+  #   enable = true;
+  #   description = "XDG Desktop Portal Service";
+  #   wantedBy = [ "default.target" ];
+  #   serviceConfig = {
+  #     ExecStart = "${pkgs.xdg-desktop-portal}/bin/xdg-desktop-portal";
+  #     Restart = "always";
+  #   };
+  # };
+
+  # systemd.user.services.xdg-desktop-portal-wlr = {
+  #   enable = true;
+  #   description = "XDG Desktop Portal WLR Service";
+  #   wantedBy = [ "default.target" ];
+  #   serviceConfig = {
+  #     ExecStart = "${pkgs.xdg-desktop-portal-wlr}/bin/xdg-desktop-portal-wlr";
+  #     Restart = "always";
+  #   };
+  # };
+
+
+
   # services.wireplumber.enable = true;
   # services.xdg.portal = {
   #   enable = true;
   #   extraPortals = [ pkgs.xdg-desktop-portal-wlr ];  # For Wayland, use the wlr portal
   # };
-  xdg.portal.config.common.default = "*";
-  xdg.portal.enable = true;
+  # xdg.portal.config.common.default = "*";
+  # xdg.portal.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.defaultUserShell = pkgs.zsh; 
@@ -118,7 +144,12 @@
     git
     mako
     libnotify
+    xdg-desktop-portal
+    xdg-desktop-portal-wlr
     pkgs.xdg-desktop-portal-gtk
+    xdg-desktop-portal-hyprland
+    pipewire
+    wireplumber
     kitty
     fuzzel
     zsh
@@ -202,6 +233,9 @@
   programs.hyprland.xwayland.enable = true;
   programs.zsh.enable = true;
 
+  hardware.opengl.extraPackages = with pkgs; [
+    amdvlk
+  ];
   hardware.opengl = {
     enable = true;
     driSupport = true;
